@@ -30,6 +30,15 @@ node_t* list_append(node_t *head, int data)
     cursor->next = new_node;
     return head;
 }
+void list_traverse(node_t *head, callback fun)
+{
+    node_t *cursor = head;
+    while(cursor != NULL)
+    {
+        (*fun)(cursor);
+        cursor = cursor->next;
+    }
+}
 node_t* list_insert_after(node_t *head, int data, node_t *prev)
 {
     /* find prev node, start fron first node*/
